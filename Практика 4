@@ -1,0 +1,22 @@
+#3
+A = int(input())
+B = int(input())
+nech = []
+if A>B:
+  while B <= A:
+    if B % 2 != 0:
+      nech += [B]
+    B+=1
+  print(sorted(nech,reverse=True))
+else: 
+  print("Число B болше числа A")
+
+#8
+n = int(input())
+b = ''
+if n<=9:
+  for i in range(n):
+    b += str(i+1)
+    print(b)
+else:
+  print('Число больше лимита')
