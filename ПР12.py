@@ -29,7 +29,7 @@ def get_info():
         tk.messagebox.showerror("Ошибка", "Репозиторий не найден")
 
 root = tk.Tk()
-root.title("GitHub Info")
+root.title("GitHub")
 root.geometry("300x150")
 
 tk.Label(root, text="Имя репозитория:").pack(pady=10)
@@ -39,4 +39,5 @@ entry.pack()
 tk.Button(root, text="Получить данные", command=get_info).pack(pady=20)
 
 root.mainloop()
+
 
