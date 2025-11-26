@@ -12,11 +12,15 @@ def get_info():
         r = requests.get(f"https://api.github.com/repos/{name}")
         r.raise_for_status()
         data = r.json()
-        polya = ['company', 'created_at', 'email', 'id', 'name', 'url']
-        bigstroka = {field: data.get(field) for field in polya}
-
-   
-        filename = f"{name.replace('/', ' ')}.json"  
+        owner = data['owner']
+        result = {
+            'company': owner.get('company'),
+            'created_at': owner.get('created_at'),
+            'email': owner.get('email'),
+            'id': owner.get('id'),
+            'name': owner.get('login'),
+            'url': owner.get('url')
+        }      
         with open('repo_data.json', 'w') as f:
             json.dump(result, f, indent=4)
             
@@ -35,3 +39,4 @@ entry.pack()
 tk.Button(root, text="Получить данные", command=get_info).pack(pady=20)
 
 root.mainloop()
+
